@@ -1,0 +1,34 @@
+version: '3.7'
+
+x-php:
+  &php
+  image: eu.gcr.io/casco-219114/composer:latest
+  environment:
+    COMPOSER_AUTH: '{"github-oauth":{"github.com":"${GITHUB_TOKEN:-token}"}}'
+  volumes:
+    - ./:/app:delegated
+    - ~/.composer/cache:/composer/cache:delegated
+  networks:
+    - casco
+
+services:
+  php:
+    <<: *php
+
+  test:
+    <<: *php
+    environment:
+      PUBSUB_EMULATOR_HOST: test-pubsub:8082
+      SUPPRESS_GCLOUD_CREDS_WARNING: "true"
+
+  test-pubsub:
+    build:
+      context: docker/emulator
+      target: pubsub
+    networks:
+      - casco
+
+networks:
+  casco:
+    external:
+      name: casco

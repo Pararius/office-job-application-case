@@ -1,0 +1,40 @@
+parameters:
+  pubsub.csv_listings.topic: 'csv-listings'
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Google\Cloud\Firestore\FirestoreClient:
+    factory: 'App\GoogleCloud\FirestoreFactory::create'
+    arguments:
+      $projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
+
+  Google\Cloud\PubSub\PubSubClient:
+    factory: 'App\GoogleCloud\PubSubFactory::client'
+    arguments:
+      $projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
+
+  pubsub.topic.csv_listings:
+    class: Google\Cloud\PubSub\Topic
+    factory: 'App\GoogleCloud\PubSubFactory::topic'
+    arguments:
+      $name: '%pubsub.csv_listings.topic%'
+    tags: ['cloud.pubsub.topic']
+
+  pubsub.subscription.csv_listings:
+    class: App\GoogleCloud\Subscription
+    factory: 'App\GoogleCloud\PubSubFactory::subscription'
+    arguments:
+      $topic: '@pubsub.topic.csv_listings'
+      $name: 'csv-listings-consumer'
+    tags: ['cloud.pubsub.subscription']
+
+  App\GoogleCloud\PubSubSetupCommand:
+    arguments:
+      $topics: !tagged_iterator 'cloud.pubsub.topic'
+      $subscriptions: !tagged_iterator 'cloud.pubsub.subscription'
+
+  App\ImportListingsCommand:
+  App\ProcessListingsCommand:
