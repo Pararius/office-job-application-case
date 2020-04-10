@@ -1,5 +1,5 @@
 parameters:
-  pubsub.csv_listings.topic: 'csv-listings'
+  pubsub.imported_listings.topic: 'imported-listings'
 
 services:
   _defaults:
@@ -16,25 +16,21 @@ services:
     arguments:
       $projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
 
-  pubsub.topic.csv_listings:
+  pubsub.topic.imported_listings:
     class: Google\Cloud\PubSub\Topic
     factory: 'App\GoogleCloud\PubSubFactory::topic'
     arguments:
-      $name: '%pubsub.csv_listings.topic%'
+      $name: '%pubsub.imported_listings.topic%'
     tags: ['cloud.pubsub.topic']
 
-  pubsub.subscription.csv_listings:
+  pubsub.subscription.process_imported_listings:
     class: App\GoogleCloud\Subscription
     factory: 'App\GoogleCloud\PubSubFactory::subscription'
     arguments:
-      $topic: '@pubsub.topic.csv_listings'
-      $name: 'csv-listings-consumer'
+      $topic: '@pubsub.topic.imported_listings'
+      $name: 'process-imported-listings'
     tags: ['cloud.pubsub.subscription']
-
-  App\GoogleCloud\PubSubSetupCommand:
-    arguments:
-      $topics: !tagged_iterator 'cloud.pubsub.topic'
-      $subscriptions: !tagged_iterator 'cloud.pubsub.subscription'
 
   App\ImportListingsCommand:
   App\ProcessListingsCommand:
+  App\ShowListingsCommand:

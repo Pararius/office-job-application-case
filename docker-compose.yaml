@@ -2,14 +2,17 @@ version: '3.7'
 
 x-php:
   &php
-  image: eu.gcr.io/casco-219114/composer:latest
-  environment:
-    COMPOSER_AUTH: '{"github-oauth":{"github.com":"${GITHUB_TOKEN:-token}"}}'
+  build:
+    context: docker/php-cli
+    target: composer
   volumes:
     - ./:/app:delegated
     - ~/.composer/cache:/composer/cache:delegated
   networks:
-    - casco
+  - interview
+  depends_on:
+  - test-pubsub
+  - test-firestore
 
 services:
   php:
@@ -26,9 +29,15 @@ services:
       context: docker/emulator
       target: pubsub
     networks:
-      - casco
+    - interview
+
+  test-firestore:
+    build:
+      context: docker/emulator
+      target: firestore
+    networks:
+    - interview
 
 networks:
-  casco:
-    external:
-      name: casco
+  interview:
+    name: interview
