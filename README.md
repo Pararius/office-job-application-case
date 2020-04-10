@@ -18,7 +18,7 @@ You can process data via:
 `bin/console listing:process`
 
 You can show all data in the system with:
-`bin.console listing:all`
+`bin/console listing:all`
 
 You do this from inside your docker container:
 
