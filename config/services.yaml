@@ -7,29 +7,24 @@ services:
     autoconfigure: true
 
   Google\Cloud\Firestore\FirestoreClient:
-    factory: 'App\GoogleCloud\FirestoreFactory::create'
     arguments:
-      $projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
+      $config:
+        projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
 
   Google\Cloud\PubSub\PubSubClient:
-    factory: 'App\GoogleCloud\PubSubFactory::client'
     arguments:
-      $projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
+      $config:
+        projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
 
-  pubsub.topic.imported_listings:
-    class: Google\Cloud\PubSub\Topic
-    factory: 'App\GoogleCloud\PubSubFactory::topic'
+  Google\Cloud\PubSub\Topic:
+    factory: ['@Google\Cloud\PubSub\PubSubClient', 'topic']
     arguments:
       $name: '%pubsub.imported_listings.topic%'
-    tags: ['cloud.pubsub.topic']
 
-  pubsub.subscription.process_imported_listings:
-    class: App\GoogleCloud\Subscription
-    factory: 'App\GoogleCloud\PubSubFactory::subscription'
+  Google\Cloud\PubSub\Subscription:
+    factory: ['@Google\Cloud\PubSub\Topic', 'subscription']
     arguments:
-      $topic: '@pubsub.topic.imported_listings'
       $name: 'process-imported-listings'
-    tags: ['cloud.pubsub.subscription']
 
   App\ImportListingsCommand:
   App\ProcessListingsCommand:

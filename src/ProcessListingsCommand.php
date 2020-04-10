@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\GoogleCloud\FirestoreFactory;
-use App\GoogleCloud\PubSubFactory;
+use Google\Cloud\Firestore\FirestoreClient;
+use Google\Cloud\PubSub\PubSubClient;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,7 +16,9 @@ final class ProcessListingsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $pubSubClient = PubSubFactory::client($_ENV['GOOGLE_CLOUD_PROJECT']);
+        $pubSubClient = new PubSubClient([
+            'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
+        ]);
 
         $topic = $pubSubClient->topic('imported-listings');
         if (!$topic->exists()) {
@@ -29,21 +31,26 @@ final class ProcessListingsCommand extends Command
             $subscription->create();
         }
 
-        $firestoreClient = FirestoreFactory::create($_ENV['GOOGLE_CLOUD_PROJECT']);
+        $firestoreClient = new FirestoreClient([
+            'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
+        ]);
 
-        while ($messages = $subscription->pull()) {
-            foreach ($messages as $message) {
+        $count = 0;
+        while ($count < 10) {
+            foreach ($subscription->pull(['returnImmediately' => true]) as $message) {
                 $listing = json_decode($message->data(), true, 512, JSON_THROW_ON_ERROR);
 
-                $output->writeln(sprintf('=> Importing: %s', $listing['listing_id']));
+                $output->writeln(sprintf('=> Processing: %s', $listing['listing_id']));
 
                 $firestoreClient
                     ->collection('listings')
                     ->document($listing['listing_id'])
-                    ->create($listing)
+                    ->set($listing)
                 ;
 
                 $subscription->acknowledge($message);
+
+                ++$count;
             }
         }
 

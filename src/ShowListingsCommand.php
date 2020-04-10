@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\GoogleCloud\FirestoreFactory;
 use Google\Cloud\Firestore\DocumentSnapshot;
+use Google\Cloud\Firestore\FirestoreClient;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,7 +17,9 @@ final class ShowListingsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $firestoreClient = FirestoreFactory::create($_ENV['GOOGLE_CLOUD_PROJECT']);
+        $firestoreClient = new FirestoreClient([
+            'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
+        ]);
 
         $docs = $firestoreClient
             ->collection('listings')

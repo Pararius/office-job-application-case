@@ -1,37 +1,27 @@
 version: '3.7'
 
-x-php:
-  &php
-  build:
-    context: docker/php-cli
-    target: composer
-  volumes:
-    - ./:/app:delegated
-    - ~/.composer/cache:/composer/cache:delegated
-  networks:
-  - interview
-  depends_on:
-  - test-pubsub
-  - test-firestore
-
 services:
   php:
-    <<: *php
-
-  test:
-    <<: *php
+    build:
+      context: docker/php
+      target: composer
+    volumes:
+    - ./:/app:delegated
+    - ~/.composer/cache:/composer/cache:delegated
+    networks:
+    - interview
     environment:
-      PUBSUB_EMULATOR_HOST: test-pubsub:8082
+      PUBSUB_EMULATOR_HOST: pubsub:8082
       SUPPRESS_GCLOUD_CREDS_WARNING: "true"
 
-  test-pubsub:
+  pubsub:
     build:
       context: docker/emulator
       target: pubsub
     networks:
     - interview
 
-  test-firestore:
+  firestore:
     build:
       context: docker/emulator
       target: firestore

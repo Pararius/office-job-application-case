@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\GoogleCloud\PubSubFactory;
+use Google\Cloud\PubSub\PubSubClient;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,7 +15,9 @@ final class ImportListingsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $client = PubSubFactory::client($_ENV['GOOGLE_CLOUD_PROJECT']);
+        $client = new PubSubClient([
+            'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
+        ]);
 
         $topic = $client->topic('imported-listings');
         if (!$topic->exists()) {
