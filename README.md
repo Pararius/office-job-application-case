@@ -24,6 +24,7 @@ emulator, and a [PubSub](https://cloud.google.com/pubsub/docs/overview) emulator
 The application consists of 3 commands. You can run them inside the php container:
 
 ```sh
+make up
 docker-compose run --rm php sh
 ```
 
