@@ -10,9 +10,6 @@ services:
     - ~/.composer/cache:/composer/cache:delegated
     networks:
     - interview
-    environment:
-      PUBSUB_EMULATOR_HOST: pubsub:8082
-      SUPPRESS_GCLOUD_CREDS_WARNING: "true"
 
   pubsub:
     build:

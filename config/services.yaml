@@ -1,31 +1,11 @@
 parameters:
-  pubsub.imported_listings.topic: 'imported-listings'
 
 services:
   _defaults:
     autowire: true
     autoconfigure: true
 
-  Google\Cloud\Firestore\FirestoreClient:
-    arguments:
-      $config:
-        projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
-
-  Google\Cloud\PubSub\PubSubClient:
-    arguments:
-      $config:
-        projectId: '%env(GOOGLE_CLOUD_PROJECT)%'
-
-  Google\Cloud\PubSub\Topic:
-    factory: ['@Google\Cloud\PubSub\PubSubClient', 'topic']
-    arguments:
-      $name: '%pubsub.imported_listings.topic%'
-
-  Google\Cloud\PubSub\Subscription:
-    factory: ['@Google\Cloud\PubSub\Topic', 'subscription']
-    arguments:
-      $name: 'process-imported-listings'
-
-  App\ImportListingsCommand:
-  App\ProcessListingsCommand:
-  App\ShowListingsCommand:
+  App\:
+    resource: '../src/'
+    exclude:
+    - '../src/Kernel.php'
