@@ -1,4 +1,4 @@
-Repo that is used by the Casco Team to do job interviews.
+Repo that is used by the Aanbod Team to do job interviews.
 
 In this assignment we are going to:
 - Read a CSV file
@@ -10,7 +10,8 @@ The code is already implemented, only not in a very object oriented way.
 
 ## Installation
 
-To install everything (assuming that you have docker and docker-compose):
+First make sure to install [Docker](https://docs.docker.com/get-docker/).
+Then, to install everything:
 
 ```sh
 make install
@@ -25,7 +26,7 @@ The application consists of 3 commands. You can run them inside the php containe
 
 ```sh
 make up
-docker-compose run --rm php sh
+docker compose run --rm php sh
 ```
 
 (This will automatically start the PubSub and Firestore emulator)

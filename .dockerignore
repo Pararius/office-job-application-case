@@ -1,0 +1,17 @@
+*.cache
+*.log
+.git/
+.github/
+.dockerignore
+.editorconfig
+.env
+.env.*
+.gitignore
+.phpunit.result.cache
+docker-compose.*
+Dockerfile
+Makefile
+phpunit*
+README.md
+tests/
+vendor
