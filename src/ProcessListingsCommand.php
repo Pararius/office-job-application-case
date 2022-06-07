@@ -6,18 +6,19 @@ namespace App;
 
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\PubSub\PubSubClient;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(name: 'listings:process')]
 final class ProcessListingsCommand extends Command
 {
-    protected static $defaultName = 'listings:process';
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $pubSubClient = new PubSubClient([
             'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
+            'requestTimeout' => 10,
         ]);
 
         $topic = $pubSubClient->topic('imported-listings');
@@ -37,7 +38,7 @@ final class ProcessListingsCommand extends Command
 
         $count = 0;
         while ($count < 10) {
-            foreach ($subscription->pull(['returnImmediately' => true]) as $message) {
+            foreach ($subscription->pull() as $message) {
                 $listing = json_decode($message->data(), true, 512, JSON_THROW_ON_ERROR);
 
                 $output->writeln(sprintf('=> Processing: %s', $listing['listing_id']));

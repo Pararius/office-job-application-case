@@ -1,5 +1,5 @@
 {
-  "name": "pararius/sollicitatie",
+  "name": "treehouse/interview",
   "type": "project",
   "license": "proprietary",
   "require": {
@@ -7,16 +7,16 @@
     "ext-json": "*",
     "google/cloud-firestore": "^1.20",
     "google/cloud-pubsub": "^1.34",
-    "symfony/console": "^6.0",
-    "symfony/dotenv": "^6.0",
+    "symfony/console": "^6.1",
+    "symfony/dotenv": "^6.1",
     "symfony/flex": "^2.1",
-    "symfony/framework-bundle": "^6.0",
-    "symfony/runtime": "^6.0",
-    "symfony/yaml": "^6.0"
+    "symfony/framework-bundle": "^6.1",
+    "symfony/runtime": "^6.1",
+    "symfony/yaml": "^6.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5",
-    "symfony/var-dumper": "^6.0"
+    "symfony/var-dumper": "^6.1"
   },
   "config": {
     "bin-dir": "bin",
@@ -62,9 +62,13 @@
     "symfony/symfony": "*"
   },
   "extra": {
+    "runtime": {
+      "disable_dotenv": false,
+      "use_putenv": true
+    },
     "symfony": {
       "allow-contrib": false,
-      "require": "^6.0"
+      "require": "^6.1"
     }
   }
 }
