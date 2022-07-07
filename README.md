@@ -7,6 +7,7 @@ In this assignment we are going to:
 
 The code is already implemented, only not in a very object oriented way.
 
+![Overview](./overview.png)
 
 ## Installation
 
@@ -17,7 +18,7 @@ Then, to install everything:
 make install
 ```
 
-This will build a php container, a [Firestore](https://cloud.google.com/firestore/docs/overview) 
+This will build a php container, a [Firestore](https://cloud.google.com/firestore/docs/overview)
 emulator, and a [PubSub](https://cloud.google.com/pubsub/docs/overview) emulator.
 
 ## Usage
@@ -64,4 +65,3 @@ To run the tests:
 ```sh
 make test
 ```
-
