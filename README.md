@@ -5,7 +5,7 @@ In this assignment we are going to:
 - Publish the listings to Google PubSub
 - Read from PubSub and write the data to Firestore
 
-The code is already implemented, only not in a very object-oriented way.
+The code is already implemented, but it could be improved in a number of ways...
 
 ![Overview](./overview.png)
 
