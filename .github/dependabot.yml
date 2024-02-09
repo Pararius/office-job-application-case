@@ -7,7 +7,7 @@ updates:
     day: friday
     interval: weekly
   groups:
-    dependencies:
+    github-actions:
       patterns:
       - '*'
 
@@ -27,6 +27,6 @@ updates:
     day: friday
     interval: weekly
   groups:
-    dependencies:
+    docker-images:
       patterns:
       - '*'
