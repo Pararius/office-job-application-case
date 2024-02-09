@@ -10,7 +10,7 @@ install: ## Installs all dependencies for this service
 .PHONY: install
 
 up: ## Starts required services
-	docker compose up -d firestore pubsub
+	docker compose up -d --wait firestore pubsub
 .PHONY: up
 
 down: ## Stops services
