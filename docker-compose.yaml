@@ -11,16 +11,20 @@ services:
     - app
 
   pubsub:
-    build:
-      context: docker/emulator
-      target: pubsub
+    image: eu.gcr.io/google.com/cloudsdktool/cloud-sdk:emulators
+    command: ["gcloud", "beta", "emulators", "pubsub", "start", "--host-port=0.0.0.0:8081"]
+    healthcheck:
+      test: "curl --fail -s -o /dev/null localhost:8081"
+      start_period: 20s
+      interval: 2s
+      timeout: 5s
+      retries: 5
     networks:
     - app
 
   firestore:
-    build:
-      context: docker/emulator
-      target: firestore
+    image: eu.gcr.io/google.com/cloudsdktool/cloud-sdk:emulators
+    command: ["gcloud", "beta", "emulators", "firestore", "start", "--host-port=0.0.0.0:8081"]
     networks:
     - app
 

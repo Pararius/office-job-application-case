@@ -26,7 +26,6 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        file: ./docker/php/Dockerfile
         context: .
         push: true
         tags: ghcr.io/pararius/office-job-interview:latest
