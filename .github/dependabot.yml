@@ -6,6 +6,10 @@ updates:
   schedule:
     day: friday
     interval: weekly
+  groups:
+    dependencies:
+      patterns:
+      - '*'
 
 - package-ecosystem: composer
   directory: /
@@ -22,3 +26,7 @@ updates:
   schedule:
     day: friday
     interval: weekly
+  groups:
+    dependencies:
+      patterns:
+      - '*'
