@@ -1,11 +1,11 @@
 ---
-name: Docker images
+name: Build/push Docker image
 
 on:
   pull_request:
     types: [closed]
     branches:
-    - master
+    - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -31,4 +31,4 @@ jobs:
         file: ./docker/php/Dockerfile
         context: .
         push: true
-        tags: ghcr.io/pararius/casco-job-interview:latest
+        tags: ghcr.io/pararius/office-job-interview:latest

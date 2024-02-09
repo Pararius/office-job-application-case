@@ -1,11 +1,11 @@
-Repo that is used by the Aanbod Team to do job interviews.
+Repo that is used by the Office Team to do job interviews.
 
 In this assignment we are going to:
 - Read a CSV file
 - Publish the listings to Google PubSub
 - Read from PubSub and write the data to Firestore
 
-The code is already implemented, only not in a very object oriented way.
+The code is already implemented, only not in a very object-oriented way.
 
 ![Overview](./overview.png)
 
