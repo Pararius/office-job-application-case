@@ -10,13 +10,14 @@ use App\ShowListingsCommand;
 use Google\Cloud\Firestore\DocumentReference;
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\PubSub\PubSubClient;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use function trim;
 
 final class ImportAndProcessListingsTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_imports(): void
     {
         $tester = new CommandTester(
@@ -45,7 +46,7 @@ final class ImportAndProcessListingsTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function it_processes(): void
     {
         $tester = new CommandTester(
@@ -74,7 +75,7 @@ final class ImportAndProcessListingsTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_after_processing(): void
     {
         $tester = new CommandTester(
