@@ -6,11 +6,11 @@ help: ## Show this help message.
 .PHONY: help
 
 install: ## Installs all dependencies for this service
-	docker compose run --rm php composer install --optimize-autoloader --no-interaction
+	docker compose run --rm php composer install -a
 .PHONY: install
 
 up: ## Starts required services
-	docker compose up -d firestore pubsub
+	docker compose up -d --wait firestore pubsub
 .PHONY: up
 
 down: ## Stops services

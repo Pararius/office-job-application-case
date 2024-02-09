@@ -115,8 +115,8 @@ final class ImportAndProcessListingsTest extends TestCase
         ]);
 
         $topic = $pubSubClient->topic('imported-listings');
-        if (!$topic->exists()) {
-            $topic->create();
+        if ($topic->exists()) {
+            $topic->delete();
         }
 
         $subscription = $pubSubClient->subscription('process-imported-listings', 'imported-listings');

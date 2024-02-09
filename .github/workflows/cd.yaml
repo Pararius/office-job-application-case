@@ -1,5 +1,5 @@
 ---
-name: Build/push Docker image
+name: Deploy Docker image
 
 on:
   push:
@@ -16,8 +16,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      docker: ${{ steps.filter.outputs.docker }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          docker:
+          - .dockerignore
+          - Dockerfile
+          - docker-compose.yaml
+
   build:
     runs-on: ubuntu-latest
+    if: needs.init.outputs.docker == 'true'
     steps:
     - uses: actions/checkout@v4
     - name: Log in to the Container registry
@@ -31,5 +47,4 @@ jobs:
       with:
         context: .
         push: true
-        cache-from: type=gha
         tags: ghcr.io/pararius/office-job-interview:latest
