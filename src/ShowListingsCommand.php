@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Google\Auth\Credentials\InsecureCredentials;
 use Google\Cloud\Firestore\DocumentSnapshot;
 use Google\Cloud\Firestore\FirestoreClient;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -18,6 +19,7 @@ final class ShowListingsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $firestoreClient = new FirestoreClient([
+            'credentials' => new InsecureCredentials(),
             'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
         ]);
 

@@ -7,6 +7,7 @@ namespace App\Tests;
 use App\ImportListingsCommand;
 use App\ProcessListingsCommand;
 use App\ShowListingsCommand;
+use Google\Auth\Credentials\InsecureCredentials;
 use Google\Cloud\Firestore\DocumentReference;
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\PubSub\PubSubClient;
@@ -111,6 +112,7 @@ final class ImportAndProcessListingsTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         $pubSubClient = new PubSubClient([
+            'credentials' => new InsecureCredentials(),
             'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
         ]);
 

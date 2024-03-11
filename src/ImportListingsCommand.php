@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Google\Auth\Credentials\InsecureCredentials;
 use Google\Cloud\PubSub\PubSubClient;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -16,6 +17,7 @@ final class ImportListingsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $client = new PubSubClient([
+            'credentials' => new InsecureCredentials(),
             'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
         ]);
 
