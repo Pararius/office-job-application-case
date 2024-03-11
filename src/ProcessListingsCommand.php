@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Google\Auth\Credentials\InsecureCredentials;
 use Google\Cloud\Firestore\FirestoreClient;
 use Google\Cloud\PubSub\PubSubClient;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -17,6 +18,7 @@ final class ProcessListingsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $pubSubClient = new PubSubClient([
+            'credentials' => new InsecureCredentials(),
             'projectId' => $_ENV['GOOGLE_CLOUD_PROJECT'],
             'requestTimeout' => 10,
         ]);
