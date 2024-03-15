@@ -1,4 +1,4 @@
-FROM composer:2.7.1 AS composer-src
+FROM composer:2.7.2 AS composer-src
 FROM mlocati/php-extension-installer:2.2 AS extension-installer
 
 FROM php:8.3.3-alpine AS php
