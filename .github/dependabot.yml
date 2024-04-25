@@ -5,7 +5,7 @@ updates:
   directory: /
   schedule:
     day: friday
-    interval: weekly
+    interval: monthly
   groups:
     github-actions:
       patterns:
@@ -15,7 +15,7 @@ updates:
   directory: /
   schedule:
     day: friday
-    interval: weekly
+    interval: monthly
   groups:
     dependencies:
       patterns:
@@ -25,7 +25,7 @@ updates:
   directory: /
   schedule:
     day: friday
-    interval: weekly
+    interval: monthly
   groups:
     docker-images:
       patterns:
