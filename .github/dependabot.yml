@@ -4,8 +4,7 @@ updates:
 - package-ecosystem: github-actions
   directory: /
   schedule:
-    day: friday
-    interval: weekly
+    interval: monthly
   groups:
     github-actions:
       patterns:
@@ -14,8 +13,7 @@ updates:
 - package-ecosystem: composer
   directory: /
   schedule:
-    day: friday
-    interval: weekly
+    interval: monthly
   groups:
     dependencies:
       patterns:
@@ -24,8 +22,7 @@ updates:
 - package-ecosystem: docker
   directory: /
   schedule:
-    day: friday
-    interval: weekly
+    interval: monthly
   groups:
     docker-images:
       patterns:
