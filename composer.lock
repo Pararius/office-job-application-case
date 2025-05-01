@@ -68,16 +68,16 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v6.11.0",
+            "version": "v6.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "8f718f4dfc9c5d5f0c994cdfd103921b43592712"
+                "reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/8f718f4dfc9c5d5f0c994cdfd103921b43592712",
-                "reference": "8f718f4dfc9c5d5f0c994cdfd103921b43592712",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
+                "reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
                 "shasum": ""
             },
             "require": {
@@ -125,22 +125,22 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v6.11.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.11.1"
             },
-            "time": "2025-01-23T05:11:06+00:00"
+            "time": "2025-04-09T20:32:01+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.46.0",
+            "version": "v1.47.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "7fafae99a41984cbfb92508174263cf7bf3049b9"
+                "reference": "d6389aae7c009daceaa8da9b7942d8df6969f6d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/7fafae99a41984cbfb92508174263cf7bf3049b9",
-                "reference": "7fafae99a41984cbfb92508174263cf7bf3049b9",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/d6389aae7c009daceaa8da9b7942d8df6969f6d9",
+                "reference": "d6389aae7c009daceaa8da9b7942d8df6969f6d9",
                 "shasum": ""
             },
             "require": {
@@ -186,9 +186,9 @@
             "support": {
                 "docs": "https://cloud.google.com/php/docs/reference/auth/latest",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.46.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.47.0"
             },
-            "time": "2025-02-12T22:21:37+00:00"
+            "time": "2025-04-15T21:47:20+00:00"
         },
         {
             "name": "google/cloud-core",
@@ -258,16 +258,16 @@
         },
         {
             "name": "google/cloud-firestore",
-            "version": "v1.48.1",
+            "version": "v1.50.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-firestore.git",
-                "reference": "c0b7cabb310be70f1f55a26039c3a5f1bb87a1b6"
+                "reference": "22d883035f77dce56936cc1909159b8858bcb0b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-firestore/zipball/c0b7cabb310be70f1f55a26039c3a5f1bb87a1b6",
-                "reference": "c0b7cabb310be70f1f55a26039c3a5f1bb87a1b6",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-firestore/zipball/22d883035f77dce56936cc1909159b8858bcb0b6",
+                "reference": "22d883035f77dce56936cc1909159b8858bcb0b6",
                 "shasum": ""
             },
             "require": {
@@ -309,9 +309,9 @@
             ],
             "description": "Cloud Firestore Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-firestore/tree/v1.48.1"
+                "source": "https://github.com/googleapis/google-cloud-php-firestore/tree/v1.50.0"
             },
-            "time": "2025-03-01T00:35:30+00:00"
+            "time": "2025-04-18T20:49:28+00:00"
         },
         {
             "name": "google/cloud-pubsub",
@@ -372,16 +372,16 @@
         },
         {
             "name": "google/common-protos",
-            "version": "4.11.0",
+            "version": "4.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/common-protos-php.git",
-                "reference": "2554ed1f09aa20faae7b71b590e7063df97ff670"
+                "reference": "96f6873c65fb0289fcdb6ac3d5239f9c9e5750b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/2554ed1f09aa20faae7b71b590e7063df97ff670",
-                "reference": "2554ed1f09aa20faae7b71b590e7063df97ff670",
+                "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/96f6873c65fb0289fcdb6ac3d5239f9c9e5750b0",
+                "reference": "96f6873c65fb0289fcdb6ac3d5239f9c9e5750b0",
                 "shasum": ""
             },
             "require": {
@@ -425,9 +425,9 @@
                 "google"
             ],
             "support": {
-                "source": "https://github.com/googleapis/common-protos-php/tree/v4.11.0"
+                "source": "https://github.com/googleapis/common-protos-php/tree/v4.12.0"
             },
-            "time": "2025-02-18T19:46:55+00:00"
+            "time": "2025-04-18T20:49:28+00:00"
         },
         {
             "name": "google/gax",
@@ -3704,16 +3704,16 @@
     "packages-dev": [
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "024473a478be9df5fdaca2c793f2232fe788e414"
+                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/024473a478be9df5fdaca2c793f2232fe788e414",
-                "reference": "024473a478be9df5fdaca2c793f2232fe788e414",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
                 "shasum": ""
             },
             "require": {
@@ -3752,7 +3752,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
             },
             "funding": [
                 {
@@ -3760,7 +3760,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-12T12:17:51+00:00"
+            "time": "2025-04-29T12:36:36+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3940,16 +3940,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "12.1.0",
+            "version": "12.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d331a5ced3d9a2b917baa9841b2211e72f9e780d"
+                "reference": "05c33d01a856f9f62488d144bafddc3d7b7a4ebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d331a5ced3d9a2b917baa9841b2211e72f9e780d",
-                "reference": "d331a5ced3d9a2b917baa9841b2211e72f9e780d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/05c33d01a856f9f62488d144bafddc3d7b7a4ebb",
+                "reference": "05c33d01a856f9f62488d144bafddc3d7b7a4ebb",
                 "shasum": ""
             },
             "require": {
@@ -4005,7 +4005,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.1.0"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.1.2"
             },
             "funding": [
                 {
@@ -4013,7 +4013,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-17T13:56:07+00:00"
+            "time": "2025-04-03T14:34:39+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4262,16 +4262,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "12.0.10",
+            "version": "12.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6075843014de23bcd6992842d69ca99d25d6a433"
+                "reference": "72ca50e817dd7d65356c16772c30f06c01a6fae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6075843014de23bcd6992842d69ca99d25d6a433",
-                "reference": "6075843014de23bcd6992842d69ca99d25d6a433",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/72ca50e817dd7d65356c16772c30f06c01a6fae2",
+                "reference": "72ca50e817dd7d65356c16772c30f06c01a6fae2",
                 "shasum": ""
             },
             "require": {
@@ -4285,7 +4285,7 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.3",
-                "phpunit/php-code-coverage": "^12.1.0",
+                "phpunit/php-code-coverage": "^12.1.2",
                 "phpunit/php-file-iterator": "^6.0.0",
                 "phpunit/php-invoker": "^6.0.0",
                 "phpunit/php-text-template": "^5.0.0",
@@ -4307,7 +4307,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "12.0-dev"
+                    "dev-main": "12.1-dev"
                 }
             },
             "autoload": {
@@ -4339,7 +4339,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.0.10"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.1.3"
             },
             "funding": [
                 {
@@ -4351,11 +4351,19 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/phpunit/phpunit",
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-23T16:03:59+00:00"
+            "time": "2025-04-22T06:11:09+00:00"
         },
         {
             "name": "sebastian/cli-parser",
