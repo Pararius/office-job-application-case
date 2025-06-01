@@ -1,7 +1,7 @@
-FROM composer:2.8.8 AS composer-src
+FROM composer:2.8.9 AS composer-src
 FROM mlocati/php-extension-installer:2.7 AS extension-installer
 
-FROM php:8.4.6-alpine AS php
+FROM php:8.4.7-alpine AS php
 COPY --from=extension-installer /usr/bin/install-php-extensions /usr/bin/
 RUN install-php-extensions \
       grpc \
