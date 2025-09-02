@@ -21,7 +21,7 @@ jobs:
     outputs:
       docker: ${{ steps.filter.outputs.docker }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: dorny/paths-filter@v3
       id: filter
       with:
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.init.outputs.docker == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Log in to the Container registry
       uses: docker/login-action@v3
       with:
